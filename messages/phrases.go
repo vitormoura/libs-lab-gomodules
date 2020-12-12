@@ -33,11 +33,15 @@ func getListOfPhrases() ([]Phrase, error) {
 
 	scanner := bufio.NewScanner(file)
 	text := ""
-	phrases := make([]Phrase, 50)
+	phrases := []Phrase{}
 	phrase := Phrase{}
 
 	for scanner.Scan() {
-		text = scanner.Text()
+		text = strings.TrimSpace(scanner.Text())
+
+		if len(text) == 0 {
+			continue
+		}
 
 		if len(phrase.Text) == 0 {
 			phrase.Text = text

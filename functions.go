@@ -13,7 +13,7 @@ func GetRandomStringList() []string {
 	var phrase messages.Phrase
 	var err error
 
-	msgs := make([]string, qttMessages)
+	msgs := []string{}
 
 	for i := 0; i < qttMessages; i++ {
 		if phrase, err = messages.GetRandomPhrase(); err != nil {
